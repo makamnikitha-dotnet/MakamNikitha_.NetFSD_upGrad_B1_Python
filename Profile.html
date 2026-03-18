@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile - E-Learning</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom Theme Overrides -->
+    <link href="css/styles.css" rel="stylesheet">
+</head>
+<body class="bg-light d-flex flex-column min-vh-100">
+
+    <!-- Bootstrap Navbar -->
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom shadow-sm">
+            <div class="container">
+                <a class="navbar-brand text-primary fw-bold" href="Dashboard.html">E-Learning</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item"><a class="nav-link fw-medium" href="Dashboard.html">Dashboard</a></li>
+                        <li class="nav-item"><a class="nav-link fw-medium" href="Courses.html">Courses</a></li>
+                        <li class="nav-item"><a class="nav-link fw-medium" href="Quiz.html">Quiz</a></li>
+                        <li class="nav-item"><a class="nav-link active fw-medium" href="Profile.html">Profile</a></li>
+                    </ul>
+                    <form class="ms-lg-3 mt-3 mt-lg-0 d-flex" id="nav-search-form">
+                        <div class="input-group input-group-sm">
+                            <span class="input-group-text bg-white border-end-0"><i class="fa-solid fa-magnifying-glass text-secondary"></i></span>
+                            <input class="form-control border-start-0 ps-0" type="search" placeholder="Search courses..." aria-label="Search" id="nav-search-input">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container py-5 flex-grow-1">
+        <h1 class="h2 fw-bold mb-5 d-flex align-items-center">
+            <i class="fa-solid fa-user profile-header-icon"></i>
+            Learner Profile
+        </h1>
+        
+        <div class="row g-4">
+            <!-- Left Column: User Profile & Stats -->
+            <div class="col-lg-4">
+                <!-- User Profile Card -->
+                <div class="card border-0 shadow-sm mb-4 p-3 text-center">
+                    <div class="card-body">
+                        <div class="profile-avatar-circle" id="profile-initials">JD</div>
+                        <h3 class="h4 fw-bold mb-1" id="profile-name">John Doe</h3>
+                        <p class="text-secondary mb-3" id="profile-email">john.doe@example.com</p>
+                        <div class="member-since-badge">Member since 2025</div>
+                    </div>
+                </div>
+
+                <!-- Learning Statistics Card -->
+                <div class="card border-0 shadow-sm p-3">
+                    <div class="card-body">
+                        <h5 class="fw-bold mb-4">Learning Statistics</h5>
+                        
+                        <div class="stat-item">
+                            <span class="stat-label">Courses Enrolled</span>
+                            <span class="stat-value-badge bg-stat-blue" id="stats-enrolled">5</span>
+                        </div>
+                        
+                        <div class="stat-item">
+                            <span class="stat-label">Courses Completed</span>
+                            <span class="stat-value-badge bg-stat-green" id="stats-completed">0</span>
+                        </div>
+                        
+                        <div class="stat-item">
+                            <span class="stat-label">Quizzes Taken</span>
+                            <span class="stat-value-badge bg-stat-cyan" id="stats-quizzes">0</span>
+                        </div>
+                        
+                        <div class="stat-item">
+                            <span class="stat-label">Average Score</span>
+                            <span class="stat-value-badge bg-stat-orange" id="stats-score">0%</span>
+                        </div>
+                    </div>
+                    <div class="card-footer bg-transparent border-0 pb-4 text-center">
+                        <button id="reset-progress-btn" class="btn btn-outline-danger btn-sm px-4 fw-bold">Reset Progress</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column: Courses, Quizzes & Settings -->
+            <div class="col-lg-8">
+                <!-- Completed Courses Card -->
+                <div class="card border-0 shadow-sm mb-4 overflow-hidden">
+                    <div class="card-header card-header-green d-flex align-items-center">
+                        <i class="fa-solid fa-circle-check me-2"></i>
+                        <h5 class="mb-0 fw-bold fs-6">Completed Courses</h5>
+                    </div>
+                    <div class="card-body p-4" id="completed-courses-list">
+                        <p class="text-secondary mb-0">No completed courses yet</p>
+                    </div>
+                </div>
+
+                <!-- Quiz History Card -->
+                <div class="card border-0 shadow-sm mb-4 overflow-hidden">
+                    <div class="card-header card-header-cyan d-flex align-items-center">
+                        <i class="fa-solid fa-trophy me-2"></i>
+                        <h5 class="mb-0 fw-bold fs-6">Quiz History</h5>
+                    </div>
+                    <div class="card-body quiz-history-container" id="quiz-history-list">
+                        <!-- Header Bar -->
+                        <div class="quiz-header-bar">
+                            <div class="quiz-col-date">Date</div>
+                            <div class="quiz-col-score">Score</div>
+                            <div class="quiz-col-grade">Grade</div>
+                            <div class="quiz-col-status">Status</div>
+                        </div>
+                        
+                        <!-- Empty State / Data Rows will be injected here -->
+                        <div class="quiz-empty-state">No quiz attempts yet</div>
+                    </div>
+                </div>
+
+                <!-- Account Settings Card -->
+                <div class="card border-0 shadow-sm overflow-hidden">
+                    <div class="card-header card-header-orange d-flex align-items-center">
+                        <i class="fa-solid fa-gear me-2"></i>
+                        <h5 class="mb-0 fw-bold fs-6">Account Settings</h5>
+                    </div>
+                    <div class="card-body p-4">
+                        <form id="account-settings-form">
+                            <div class="mb-4">
+                                <label for="settings-name" class="form-label text-dark fw-medium">Display Name</label>
+                                <input type="text" class="form-control py-2 shadow-none" id="settings-name" value="John Doe" required>
+                            </div>
+                            <div class="mb-4">
+                                <label for="settings-email" class="form-label text-dark fw-medium">Email</label>
+                                <input type="email" class="form-control py-2 shadow-none" id="settings-email" value="john.doe@example.com" required>
+                            </div>
+                            <button type="submit" class="btn btn-primary px-4 py-2 fw-bold" id="save-settings-btn">Save Changes</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Global Toast Container -->
+    <div aria-live="polite" aria-atomic="true" class="position-relative">
+        <div class="toast-container position-fixed bottom-0 end-0 p-3" id="toastPlacement">
+            <!-- Toasts will be injected dynamically via JS -->
+        </div>
+    </div>
+
+    <!-- Bootstrap Footer -->
+    <footer class="footer-theme text-white text-center py-4 mt-auto">
+        <p class="mb-0 small opacity-75">&copy; 2026 E-Learning Platform. Professional Profile Edition.</p>
+    </footer>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom App Logic -->
+    <script src="js/logic.js"></script>
+    <script src="js/data.js"></script>
+    <script src="js/storage.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>

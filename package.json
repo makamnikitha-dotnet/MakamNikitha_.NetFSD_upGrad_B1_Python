@@ -1,0 +1,15 @@
+{
+  "name": "e-learning-platform",
+  "version": "1.0.0",
+  "description": "Multi-Page E-Learning Platform",
+  "main": "js/app.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^30.3.0"
+  }
+}
