@@ -1,4 +1,4 @@
-# Premium Multi-Page E-Learning Platform
+# Multi-Page E-Learning Platform
 
 A high-fidelity, client-side e-learning frontend built with standard web technologies. This project features a sophisticated dashboard, dynamic quiz systems, and full state persistence.
 
