@@ -22,18 +22,51 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-                    <ul class="navbar-nav">
-                        <li class="nav-item"><a class="nav-link fw-medium" href="Dashboard.html">Dashboard</a></li>
-                        <li class="nav-item"><a class="nav-link fw-medium" href="Courses.html">Courses</a></li>
-                        <li class="nav-item"><a class="nav-link active fw-medium" href="Quiz.html">Quiz</a></li>
-                        <li class="nav-item"><a class="nav-link fw-medium" href="Profile.html">Profile</a></li>
+                    <ul class="navbar-nav align-items-center">
+                        <li class="nav-item mx-2"><a class="nav-link fw-medium" href="Dashboard.html">Dashboard</a></li>
+                        <li class="nav-item mx-2"><a class="nav-link fw-medium" href="Courses.html">Courses</a></li>
+                        <li class="nav-item mx-2"><a class="nav-link active fw-medium" href="Quiz.html">Quiz</a></li>
+                        <li class="nav-item mx-2"><a class="nav-link fw-medium" href="Profile.html">Profile</a></li>
+                        <li class="nav-item ms-lg-4 position-relative">
+                            <a href="#" class="notification-link" id="notification-toggle">
+                                <i class="fa-regular fa-bell"></i>
+                                <span class="notification-dot"></span>
+                            </a>
+                            <!-- Notification Dropdown -->
+                            <div class="notification-dropdown shadow-lg border-0" id="notification-dropdown">
+                                <div class="dropdown-header d-flex justify-content-between align-items-center">
+                                    <h6 class="mb-0 fw-bold">Notifications</h6>
+                                    <button class="btn btn-sm text-primary fw-bold p-0" id="mark-all-read">Mark all as read</button>
+                                </div>
+                                <div class="notification-list" id="notification-list">
+                                    <div class="notification-item unread">
+                                        <div class="notification-icon bg-primary-light text-primary">
+                                            <i class="fa-solid fa-book-open"></i>
+                                        </div>
+                                        <div class="notification-content">
+                                            <p class="mb-0">Welcome to E-Learning! Start your first course today.</p>
+                                            <span class="notification-time">Just now</span>
+                                        </div>
+                                    </div>
+                                    <div class="notification-item">
+                                        <div class="notification-icon bg-success-light text-success">
+                                            <i class="fa-solid fa-circle-check"></i>
+                                        </div>
+                                        <div class="notification-content">
+                                            <p class="mb-0">Profile updated successfully.</p>
+                                            <span class="notification-time">2 hours ago</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="dropdown-footer text-center">
+                                    <a href="#" class="text-secondary small fw-bold text-decoration-none">View all notifications</a>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="nav-item ms-lg-3">
+                            <div class="navbar-user-avatar" id="nav-user-avatar">N</div>
+                        </li>
                     </ul>
-                    <form class="ms-lg-3 mt-3 mt-lg-0 d-flex" id="nav-search-form">
-                        <div class="input-group input-group-sm">
-                            <span class="input-group-text bg-white border-end-0"><i class="fa-solid fa-magnifying-glass text-secondary"></i></span>
-                            <input class="form-control border-start-0 ps-0" type="search" placeholder="Search courses..." aria-label="Search" id="nav-search-input">
-                        </div>
-                    </form>
                 </div>
             </div>
         </nav>

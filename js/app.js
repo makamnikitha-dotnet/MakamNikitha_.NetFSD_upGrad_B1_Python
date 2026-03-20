@@ -45,6 +45,7 @@ const appLogic = {
     init: function() {
         this.loadState();
         this.initGlobalSearch();
+        this.initNotifications();
         
         const path = window.location.pathname.toLowerCase();
         if (path.includes('dashboard.html') || path === '/' || path.endsWith('/')) {
@@ -576,5 +577,46 @@ const appLogic = {
                 }
             };
         }
+    },
+
+    initNotifications: function() {
+        const toggle = document.getElementById('notification-toggle');
+        const dropdown = document.getElementById('notification-dropdown');
+        const markAllRead = document.getElementById('mark-all-read');
+        const dot = document.querySelector('.notification-dot');
+
+        if (!toggle || !dropdown) return;
+
+        toggle.addEventListener('click', (e) => {
+            e.preventDefault();
+            dropdown.classList.toggle('active');
+        });
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!toggle.contains(e.target) && !dropdown.contains(e.target)) {
+                dropdown.classList.remove('active');
+            }
+        });
+
+        if (markAllRead) {
+            markAllRead.addEventListener('click', () => {
+                const unreadItems = dropdown.querySelectorAll('.notification-item.unread');
+                unreadItems.forEach(item => item.classList.remove('unread'));
+                if (dot) dot.style.display = 'none';
+                this.showToast('Notifications', 'All notifications marked as read.', false);
+            });
+        }
+
+        // Handle individual notification clicks
+        const items = dropdown.querySelectorAll('.notification-item');
+        items.forEach(item => {
+            item.addEventListener('click', () => {
+                item.classList.remove('unread');
+                const stillUnread = dropdown.querySelectorAll('.notification-item.unread').length;
+                if (stillUnread === 0 && dot) dot.style.display = 'none';
+                dropdown.classList.remove('active');
+            });
+        });
     }
 };
